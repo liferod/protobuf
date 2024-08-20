@@ -3,13 +3,10 @@ module github.com/liferod/protobuf
 go 1.21
 
 require (
-	google.golang.org/genproto v0.0.0-20220426171045-31bebdecfb46
-	google.golang.org/grpc v1.46.0
-	google.golang.org/protobuf v1.28.0
+	google.golang.org/genproto/googleapis/api v0.0.0-20240814211410-ddb44dafa142
+	google.golang.org/genproto/googleapis/rpc v0.0.0-20240814211410-ddb44dafa142
+	google.golang.org/grpc v1.65.0
+	google.golang.org/protobuf v1.34.2
 )
 
-require (
-	github.com/golang/protobuf v1.5.2 // indirect
-	github.com/google/go-cmp v0.5.7 // indirect
-	golang.org/x/net v0.0.0-20220127200216-cd36cc0744dd // indirect
-)
+require golang.org/x/sys v0.21.0 // indirect
