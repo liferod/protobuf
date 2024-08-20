@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package protobuf;
+
+import "google/protobuf/descriptor.proto";
+import "protobuf/options/auth.proto";
+
+option go_package = "github.com/golang/protobuf/protoc-gen-go/protobuf;protobuf";
+
+extend google.protobuf.MethodOptions {
+    // 认证和授权选项
+    protobuf.options.AuthRule auth = 800800;
+}
+
+extend google.protobuf.EnumValueOptions {
+    // 枚举值描述内容
+    string text = 800900;
+}

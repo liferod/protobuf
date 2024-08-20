@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package service.example.v1.mocker;
+
+import "service/example/v1/mocker/data.proto";
+
+option go_package = "service/example/v1/mocker;mocker";
+
+// MockRequest
+message MockRequest {
+    // url
+    string url = 1;
+    // body
+    string body = 2;
+}
+
+// MockResponse
+message MockResponse {
+    // Data
+    Data data = 1;
+}

@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+// Protobuf内部扩展选项
+package protobuf.options;
+
+option go_package = "github.com/liferod/protobuf/protoc-gen-go/protobuf/options;options";
+
+// 认证等级
+enum AuthLevel {
+    // 不认证
+    // 这个模式下无论是否提供认证凭据，服务器都不会进行校验。
+    NoAuth = 0;
+    // 可选认证
+    // 这个模式下可以不提供认证凭据；如果提供了认证凭据，则服务器会校验认证凭据。校验失败时会返回认证错误。
+    OptionalAuth = 1;
+    // 严格认证
+    // 这个模式下必须提供认证凭据并且提供服务器校验。
+    RestrictedAuth = 2;
+}
+
+
+// 认证和授权规则
+message AuthRule {
+    // 认证等级，默认是NoAuth
+    AuthLevel level  = 1;
+    // Scope
+    string scope     = 2;
+    // RequireUser 是否必须绑定用户，默认非必须
+    bool requireUser = 6;
+}

@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+package service.example.v1.mocker;
+
+import "protobuf/annotations.proto";
+import "protobuf/google/api/annotations.proto";
+import "openapiv2/options/annotations.proto";
+import "service/example/v1/mocker/service_message.proto";
+
+option go_package = "service/example/v1/mocker;mocker";
+
+option (openapiv2.options.openapiv2_swagger) = {
+	info: {
+		title: "service.example.v1.mocker";
+		version: "__VERSION__";
+		contact: {
+			name: "liferod";
+			url: "https://github.com/liferod/protobuf";
+		};
+	};
+	schemes: HTTP;
+	schemes: HTTPS;
+	consumes: "application/json";
+	produces: "application/json";
+	responses: {
+		key: "403";
+		value: {
+			description: "Forbidden";
+		}
+	};
+	responses: {
+		key: "404";
+		value: {
+			description: "Not Found";
+		}
+	};
+	responses: {
+		key: "500";
+		value: {
+			description: "Internal Error";
+		}
+	}
+};
+
+// Mocker
+service Mocker {
+    // Mock
+    rpc Mock(MockRequest) returns (MockResponse) {
+			  option (google.api.http) = {
+				  post: "/example/v1/mocker/mock"
+				  body: "*"
+			  };
+    }
+}

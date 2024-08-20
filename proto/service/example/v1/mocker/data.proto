@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package service.example.v1.mocker;
+
+option go_package = "service/example/v1/mocker;mocker";
+
+// Data
+message Data {
+    // CreatedTime
+    string createdTime = 1;
+    // UpdatedTime
+    string updatedTime = 2;
+    // IsDeleted
+    bool  isDeleted    = 3;
+    // DeletedTime
+    string deletedTime = 4;
+}
